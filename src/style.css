@@ -1,0 +1,118 @@
+:root {
+  --bgClr: #1f4dbd;
+  --cardClr: #194ba1;
+}
+* {
+  margin: 2px;
+  padding: 0;
+}
+
+body {
+  padding: 48px;
+  background-color: var(--bgClr);
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root {
+  width: 90%;
+}
+
+.location {
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.day-date {
+  font-size: 20px;
+}
+
+section.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+section.hero .weather-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-right: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-temp img {
+  width: 100%;
+}
+
+.weather-summary-detail {
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  text-align: center;
+}
+
+.weather-summary-detail h1 {
+  font-weight: 100;
+  font-size: 192px;
+}
+
+.weather-summary-detail h5 {
+  font-weight: 100;
+}
+
+.weather-details {
+  display: grid;
+  justify-content: center;
+  grid: repeat(2, 1fr) / repeat(3, 1fr);
+}
+
+.weather-details .detail-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-details .detail-card .value {
+  font-size: 36px;
+}
+
+.weather-details .detail-card .metric {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+.forecast {
+  margin: 18px 0;
+}
+
+.forecast h3 {
+  font-weight: 100;
+  opacity: 0.8;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-rows: 240px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 18px;
+  
+}
+
+.forecast-grid .forecast-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--cardClr);
+}
+.forecast-grid .forecast-card h3 {
+  font-size: 30px;
+  opacity: 0.8;
+}
+
+.forecast-grid .forecast-card img{
+  width: 130px;
+  height: auto;
+}
