@@ -1,2 +1,3 @@
-import "./style.css"
-const vcAPIkey = `3MLWADDZA3VLRW3THLLEXTEUC`;
+import "./style.css";
+import { getWeather } from "./weatherAPI";
+
