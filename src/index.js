@@ -1,4 +1,4 @@
 import "./style.css";
 import { getWeather } from "./weatherAPI";
+import getDayOfTheWeek from "./dateHelpers";
 
-getWeather("Tokyo")

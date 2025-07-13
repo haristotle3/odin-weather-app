@@ -2,6 +2,8 @@ const vcAPIkey = `3MLWADDZA3VLRW3THLLEXTEUC`;
 
 class WeatherInformation {
   constructor(weatherJsonObject) {
+    this.resolvedAddress = weatherJsonObject.resolvedAddress;
+    this.description = weatherJsonObject.description;
     this.icon = weatherJsonObject.currentConditions.icon;
     this.temp = weatherJsonObject.currentConditions.temp;
     this.humidity = weatherJsonObject.currentConditions.humidity;
@@ -28,6 +30,14 @@ class WeatherInformation {
     }
 
     return weekArr;
+  }
+
+  getResolvedAddress() {
+    return this.resolvedAddress;
+  }
+
+  getDescription() {
+    return this.description;
   }
 
   getIcon() {
