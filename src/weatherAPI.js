@@ -14,8 +14,6 @@ class WeatherInformation {
     this.windspeed = weatherJsonObject.currentConditions.windspeed;
     this.cloudcover = weatherJsonObject.currentConditions.cloudcover;
     this.weekArr = this.constructWeekArr(weatherJsonObject);
-
-    console.log(this);
   }
 
   constructWeekArr(weatherJsonObject) {
@@ -88,10 +86,10 @@ async function fetchWeather(url) {
 
 async function getWeather(location = `Delhi`, temperatureUnit = "C") {
   const url = constructURL(location, temperatureUnit);
-  console.log(url);
   const weatherInfo = await fetchWeather(url);
-
   const weatherObj = new WeatherInformation(weatherInfo);
+
+  return weatherObj;
 }
 
 export { getWeather };
