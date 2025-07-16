@@ -1,4 +1,4 @@
-import { getWeather } from "./src/weatherAPI";
+import { getWeather } from "./weatherAPI";
 
 export default async function getInitWeather() {
   if (!localStorage.getItem("defaultWeather")) {
@@ -8,4 +8,9 @@ export default async function getInitWeather() {
   }
   const initWeather = JSON.parse(localStorage.getItem("defaultWeather"));
   return initWeather;
+}
+
+function updateLocalStorage(newWeather) {
+  localStorage.setItem("defaultWeather", JSON.stringify(newWeather));
+  return;
 }
