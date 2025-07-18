@@ -15,3 +15,5 @@ export default async function getInitWeather() {
   const initWeather = JSON.parse(localStorage.getItem("defaultWeather"));
   return initWeather;
 }
+
+// should add methods to the locally stored objects
