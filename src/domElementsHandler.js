@@ -1,5 +1,4 @@
-import { ImportType } from "es-module-lexer";
-import { getToday } from "./dateHelpers";
+import { getToday, getDayOfTheWeek } from "./dateHelpers";
 
 export default class WeatherDOMHandler {
   constructor(newWeatherObject) {
@@ -10,6 +9,7 @@ export default class WeatherDOMHandler {
     this.weatherSummaryName = document.querySelector(`#weather-name`);
     this.weatherDetailContainer = document.querySelector(`.weather-details`);
     this.forecastGrid = document.querySelector(`.forecast-grid`);
+
     this.weatherObject = newWeatherObject;
 
     this.updateDisplay();
@@ -88,6 +88,30 @@ export default class WeatherDOMHandler {
     this.weatherDetailContainer.appendChild(windspeed);
     this.weatherDetailContainer.appendChild(dew);
     this.weatherDetailContainer.appendChild(sunsetTime);
+
+    this.weatherObject.getWeekArr().forEach((day) => {
+      const forecastCard = document.createElement("div");
+      const h3Day = document.createElement("h3");
+      const img = document.createElement("img");
+      const h3FT = document.createElement("h3");
+
+      forecastCard.className = "forecast-card";
+      h3Day.className = "day";
+      h3FT.className = "forecast-temperature";
+
+      h3Day.textContent = getDayOfTheWeek(day.datetime);
+      (async () => {
+        const importedImg = await import(`./assets/${day.icon}.png`);
+        img.src = importedImg.default;
+      })();
+      h3FT.textContent = day.temp + " °C";
+
+      forecastCard.appendChild(h3Day);
+      forecastCard.appendChild(img);
+      forecastCard.appendChild(h3FT);
+
+      this.forecastGrid.appendChild(forecastCard);
+    });
   }
 
   changeLocation(newWeatherObject) {

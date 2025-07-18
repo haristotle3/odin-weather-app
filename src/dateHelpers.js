@@ -1,6 +1,6 @@
 import { getDay } from "date-fns";
 
-export default function getDayOfTheWeek(datetime) {
+export function getDayOfTheWeek(datetime) {
   const dateArr = datetime.split("-");
 
   const year = Number(dateArr[0]);
