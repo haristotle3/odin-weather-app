@@ -42,7 +42,8 @@ section.hero .weather-summary {
 }
 
 .weather-temp img {
-  width: 100%;
+  width: 350px;
+  height: auto;
 }
 
 .weather-summary-detail {
@@ -96,7 +97,6 @@ section.hero .weather-summary {
   grid-template-rows: 240px;
   grid-template-columns: repeat(7, 1fr);
   gap: 18px;
-  
 }
 
 .forecast-grid .forecast-card {
@@ -112,7 +112,7 @@ section.hero .weather-summary {
   opacity: 0.8;
 }
 
-.forecast-grid .forecast-card img{
+.forecast-grid .forecast-card img {
   width: 130px;
   height: auto;
 }

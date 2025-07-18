@@ -43,7 +43,7 @@ class WeatherInformation {
   }
 
   getTemp() {
-    return this.temp;
+    return this.temp + "°";
   }
 
   getHumidity() {
