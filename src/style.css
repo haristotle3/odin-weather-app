@@ -1,6 +1,7 @@
 :root {
+  --bgGradient: linear-gradient(#1f4dbd, rgb(12, 158, 255));
   --bgClr: #1f4dbd;
-  --cardClr: #194ba1;
+  --cardClr: linear-gradient(#2554a5, rgb(6, 69, 151));
 }
 * {
   margin: 2px;
@@ -9,7 +10,7 @@
 
 body {
   padding: 48px;
-  background-color: var(--bgClr);
+  background-image: var(--bgGradient);
   color: white;
   font-family: sans-serif;
   display: flex;
@@ -105,7 +106,7 @@ section.hero .weather-summary {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: var(--cardClr);
+  background-image: var(--cardClr);
 }
 .forecast-grid .forecast-card h3 {
   font-size: 30px;

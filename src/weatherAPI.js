@@ -19,7 +19,7 @@ class WeatherInformation {
   constructWeekArr(weatherJsonObject) {
     const weekArr = [];
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 1; i < 8; i++) {
       weekArr.push({
         datetime: weatherJsonObject.days[i].datetime,
         icon: weatherJsonObject.days[i].icon,
