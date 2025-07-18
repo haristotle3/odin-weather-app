@@ -1,6 +1,6 @@
 :root {
   --bgGradient: linear-gradient(#1f4dbd, rgb(12, 158, 255));
-  --bgClr: #1f4dbd;
+  --bgClr: #3787d1;
   --cardClr: linear-gradient(#2554a5, rgb(6, 69, 151));
 }
 * {
@@ -29,6 +29,25 @@ body {
 
 .day-date {
   font-size: 20px;
+}
+
+form {
+  translate: 50% 0;
+  margin-left: 50%;
+}
+
+form input#location,
+form input[type="submit"]{
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+form input[type="submit"] {
+  color: white;
+  background-color: var(--bgClr);
+  border: 1px solid white;
 }
 
 section.hero {
