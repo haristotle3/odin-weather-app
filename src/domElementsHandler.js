@@ -1,4 +1,6 @@
 import { getToday, getDayOfTheWeek } from "./dateHelpers";
+import loadingGIF from "./assets/loading.gif";
+import { getWeather } from "./weatherAPI";
 
 export default class WeatherDOMHandler {
   constructor(newWeatherObject) {
@@ -9,10 +11,37 @@ export default class WeatherDOMHandler {
     this.weatherSummaryName = document.querySelector(`#weather-name`);
     this.weatherDetailContainer = document.querySelector(`.weather-details`);
     this.forecastGrid = document.querySelector(`.forecast-grid`);
+    this.form = document.querySelector("form");
+    this.loadingGif = document.querySelector("form img");
+    this.loadingGif.src = loadingGIF;
+
+    this.form.addEventListener("submit", async (e) => {
+      this.toggleLoading();
+
+      e.preventDefault();
+      const newLocationInput = document.querySelector("form input#location");
+      const newLocation = newLocationInput.value;
+      const newWeatherObject = await getWeather(newLocation);
+      this.changeLocation(newWeatherObject);
+
+      this.toggleLoading();
+
+      this.form.reset();
+    });
 
     this.weatherObject = newWeatherObject;
 
     this.updateDisplay();
+  }
+
+  clear() {
+    while (this.weatherDetailContainer.lastChild)
+      this.weatherDetailContainer.removeChild(
+        this.weatherDetailContainer.lastChild
+      );
+      
+    while (this.forecastGrid.lastChild)
+      this.forecastGrid.removeChild(this.forecastGrid.lastChild);
   }
 
   createDetailCardDiv(value, metric) {
@@ -47,6 +76,7 @@ export default class WeatherDOMHandler {
   }
 
   updateDisplay() {
+    this.clear();
     this.location.textContent = this.weatherObject.getResolvedAddress();
 
     this.dayDate.textContent = getToday();
@@ -112,6 +142,10 @@ export default class WeatherDOMHandler {
 
       this.forecastGrid.appendChild(forecastCard);
     });
+  }
+
+  toggleLoading() {
+    this.loadingGif.classList.toggle("visible");
   }
 
   changeLocation(newWeatherObject) {

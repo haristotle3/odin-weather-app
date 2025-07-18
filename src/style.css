@@ -34,10 +34,13 @@ body {
 form {
   translate: 50% 0;
   margin-left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 form input#location,
-form input[type="submit"]{
+form input[type="submit"] {
   border: none;
   outline: none;
   border-radius: 8px;
@@ -48,6 +51,19 @@ form input[type="submit"] {
   color: white;
   background-color: var(--bgClr);
   border: 1px solid white;
+}
+
+form img {
+  margin: 0;
+  padding: 0;
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+form img.visible {
+  visibility: visible;
 }
 
 section.hero {
