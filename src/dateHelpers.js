@@ -11,3 +11,37 @@ export default function getDayOfTheWeek(datetime) {
 
   return dayMapper[getDay(new Date(year, month - 1, day))];
 }
+
+export function getToday() {
+  const today = new Date();
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const todaysDate = today.getDate();
+  const todaysDayOfTheWeek = days[today.getDay()];
+  const todaysMonth = months[today.getMonth()];
+  return todaysDayOfTheWeek + ", " + todaysDate + " " + todaysMonth;
+}

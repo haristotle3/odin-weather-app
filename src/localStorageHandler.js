@@ -1,4 +1,5 @@
 import { getWeather } from "./weatherAPI";
+const DEFAULT_LOCATION = `Delhi`;
 
 function updateLocalStorage(newWeather) {
   localStorage.setItem("defaultWeather", JSON.stringify(newWeather));
@@ -7,7 +8,7 @@ function updateLocalStorage(newWeather) {
 
 export default async function getInitWeather() {
   if (!localStorage.getItem("defaultWeather")) {
-    const currentWeather = await getWeather("Delhi");
+    const currentWeather = await getWeather(DEFAULT_LOCATION);
     updateLocalStorage(currentWeather);
     return currentWeather;
   }
