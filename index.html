@@ -1,1 +1,38 @@
-<head><script defer src="main.js"></script></head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="root">
+      <div class="location">Location:</div>
+      <div class="day-date"></div>
+      <form>
+        <label for="location">Location</label>
+        <input id="location" type="text" placeholder="Delhi" />
+        <input type="submit" value="Search"/>
+        <img src="#" alt="">
+      </form>
+
+      <section class="hero">
+        <div class="weather-summary">
+          <div class="weather-temp">
+            <img src="#" alt="" id="weather-icon" />
+          </div>
+          <div class="weather-summary-detail">
+            <h1 id="temperature"></h1>
+            <h5 id="weather-name"></h5>
+          </div>
+        </div>
+        <div class="weather-details"></div>
+      </section>
+
+      <section class="forecast">
+        <h3>Weather for next 7 days</h3>
+        <div class="forecast-grid"></div>
+      </section>
+    </div>
+  </body>
+</html>
